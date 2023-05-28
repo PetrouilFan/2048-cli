@@ -1,6 +1,6 @@
 ## 2048-cli
 
-This is a 2048 version of the game designed to run on cli and it can also be used to train AIs.
+This is a version of the game 2048 designed to run on cli (terminal) and it can also be used to train AIs.
 
 ### Usage for cli game
 ```python
