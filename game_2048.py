@@ -50,7 +50,7 @@ class Game:
         print(" ---- ---- ---- ----")
         
     def moves(self, event):
-        if event == 's' or event == 0:
+        if event == 's' or event == 2:
             for j in range(0, 4):
                 shift = 0
                 for i in range(3, -1, -1):
@@ -73,7 +73,7 @@ class Game:
                         if shift > 0:
                             self.game_board[i + shift][j] = self.game_board[i][j]
                             self.game_board[i][j] = 0
-        elif event == 'd' or event == 1:
+        elif event == 'd' or event == 3:
             for i in range(0, 4):
                 shift = 0
                 for j in range(3, -1, -1):
@@ -96,7 +96,7 @@ class Game:
                         if shift > 0:
                             self.game_board[i][j + shift] = self.game_board[i][j]
                             self.game_board[i][j] = 0
-        elif event == 'a' or event == 2:
+        elif event == 'a' or event == 1:
             for i in range(0, 4):
                 shift = 0
                 for j in range(0, 4):
@@ -119,7 +119,7 @@ class Game:
                         if shift > 0:
                             self.game_board[i][j - shift] = self.game_board[i][j]
                             self.game_board[i][j] = 0
-        elif event == 'w' or event == 3:
+        elif event == 'w' or event == 0:
             for j in range(0, 4):
                 shift = 0
                 for i in range(0, 4):
@@ -142,9 +142,10 @@ class Game:
                         if shift > 0:
                             self.game_board[i - shift][j] = self.game_board[i][j]
                             self.game_board[i][j] = 0
-        self.new_tiles()
-        if self.auto_restart:
-            self.game_over()
+        if (event in [0,1,2,3]) or (event in ['w','a','s','d']):
+            self.new_tiles()
+            if self.auto_restart:
+                self.game_over()
 
     def new_game(self):
         self.score = 0
